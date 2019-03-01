@@ -5,6 +5,7 @@ JoinRequest.destroy_all
 
 
 puts "Re-creating users..."
+
 u1 = User.create!({
   name: 'Gandalf Grey',
   email: 'mithran@dir.com',
