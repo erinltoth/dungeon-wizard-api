@@ -1,6 +1,8 @@
 puts "Clearing data..."
 Campaign.destroy_all
 User.destroy_all
+JoinRequest.destroy_all
+
 
 puts "Re-creating users..."
 u1 = User.create!({
@@ -47,6 +49,7 @@ c3 = u2.campaigns.create!({
   location: 'Vancouver 3'
 })
 
+
 puts "Re-creating user-campaign connections"
 
 UserCampaign.create!({
@@ -62,4 +65,24 @@ UserCampaign.create!({
 UserCampaign.create!({
   user_id: u2.id,
   campaign_id: c3.id
+})
+
+puts "Re-creating join requests..."
+
+JoinRequest.create!({
+  user_id: u3.id,
+  campaign_id: c1.id,
+  status: "I'm so cool!"
+})
+
+JoinRequest.create!({
+  user_id: u3.id,
+  campaign_id: c2.id,
+  status: "I'm so sweet!"
+})
+
+JoinRequest.create!({
+  user_id: u3.id,
+  campaign_id: c3.id,
+  status: "I'm so awesome!"
 })
