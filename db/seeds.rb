@@ -1,7 +1,8 @@
 puts "Clearing data..."
+JoinRequest.destroy_all
+UserCampaign.destroy_all
 Campaign.destroy_all
 User.destroy_all
-JoinRequest.destroy_all
 
 
 puts "Re-creating users..."
