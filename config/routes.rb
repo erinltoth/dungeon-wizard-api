@@ -3,5 +3,5 @@ Rails.application.routes.draw do
 
   resources :users , only: [:index, :show]
 
-  resources :campaigns, only: [:index, :show, :create, :edit, :update]
+  resources :campaigns
 end
