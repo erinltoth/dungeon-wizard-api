@@ -29,20 +29,37 @@ u3 = User.create!({
 
 puts "Re-creating campaigns..."
 
-u1.campaigns.create!({
+c1 = u1.campaigns.create!({
   name: 'Awesome Campaign',
   description: 'Awesome description!',
   location: 'Vancouver'
 })
 
-u1.campaigns.create!({
+c2 = u1.campaigns.create!({
   name: 'Awesome Campaign 2',
   description: 'Awesome description 2!',
   location: 'Vancouver 2'
 })
 
-u2.campaigns.create!({
+c3 = u2.campaigns.create!({
   name: 'Awesome Campaign 3',
   description: 'Awesome description 3!',
   location: 'Vancouver 3'
+})
+
+puts "Re-creating user-campaign connections"
+
+UserCampaign.create!({
+  user_id: u1.id,
+  campaign_id: c1.id
+})
+
+UserCampaign.create!({
+  user_id: u1.id,
+  campaign_id: c2.id
+})
+
+UserCampaign.create!({
+  user_id: u2.id,
+  campaign_id: c3.id
 })
