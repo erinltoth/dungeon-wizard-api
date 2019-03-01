@@ -49,11 +49,40 @@ c3 = u2.campaigns.create!({
   location: 'Vancouver 3'
 })
 
+
+puts "Re-creating user-campaign connections"
+
+UserCampaign.create!({
+  user_id: u1.id,
+  campaign_id: c1.id
+})
+
+UserCampaign.create!({
+  user_id: u1.id,
+  campaign_id: c2.id
+})
+
+UserCampaign.create!({
+  user_id: u2.id,
+  campaign_id: c3.id
+})
+
 puts "Re-creating join requests..."
 
-u3.join_requests.create(status: "I'm so cool!")
+JoinRequest.create!({
+  user_id: u3.id,
+  campaign_id: c1.id,
+  status: "I'm so cool!"
+})
 
-u3.join_requests.create(status: "I'm so sweet!")
+JoinRequest.create!({
+  user_id: u3.id,
+  campaign_id: c2.id,
+  status: "I'm so sweet!"
+})
 
-u3.join_requests.create(status: "I'm so awesome!")
-
+JoinRequest.create!({
+  user_id: u3.id,
+  campaign_id: c3.id,
+  status: "I'm so awesome!"
+})

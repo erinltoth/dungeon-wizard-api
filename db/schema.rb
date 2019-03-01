@@ -35,6 +35,15 @@ ActiveRecord::Schema.define(version: 2019_03_01_023518) do
     t.index ["user_id"], name: "index_join_requests_on_user_id"
   end
 
+  create_table "user_campaigns", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "campaign_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["campaign_id"], name: "index_user_campaigns_on_campaign_id"
+    t.index ["user_id"], name: "index_user_campaigns_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email"
@@ -48,4 +57,6 @@ ActiveRecord::Schema.define(version: 2019_03_01_023518) do
   add_foreign_key "campaigns", "users"
   add_foreign_key "join_requests", "campaigns"
   add_foreign_key "join_requests", "users"
+  add_foreign_key "user_campaigns", "campaigns"
+  add_foreign_key "user_campaigns", "users"
 end
