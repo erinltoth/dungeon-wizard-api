@@ -4,4 +4,6 @@ Rails.application.routes.draw do
   resources :users , only: [:index, :show]
 
   resources :campaigns
+
+  resources :join_requests
 end
