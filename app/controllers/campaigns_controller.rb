@@ -6,7 +6,12 @@ class CampaignsController < ApplicationController
 
   def show
     @campaign = Campaign.find params[:id]
-    render json: @campaign
+    @dm = User.find(@campaign.user_id)
+    data = {
+      campaign: @campaign,
+      dm: @dm
+    }
+    render json: data
   end
 
   def new
