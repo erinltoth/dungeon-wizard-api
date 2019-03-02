@@ -1,0 +1,2 @@
+class UserCampaignsController < ApplicationController
+end
