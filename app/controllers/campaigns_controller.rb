@@ -24,7 +24,7 @@ class CampaignsController < ApplicationController
   end
 
   def destroy
-    @campaign = Product.find params[:id]
+    @campaign = Campaign.find params[:id]
     @campaign.destroy
     redirect_to [:campaigns], notice: 'Campaign deleted!'
   end

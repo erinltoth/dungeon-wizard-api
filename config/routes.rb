@@ -6,5 +6,5 @@ Rails.application.routes.draw do
   resources :campaigns
 
   resources :join_requests, except: [:index]
-  resources :user_campaigns
+  resources :user_campaigns, except: [:index]
 end
