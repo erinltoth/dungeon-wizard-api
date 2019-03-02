@@ -73,17 +73,23 @@ puts "Re-creating join requests..."
 JoinRequest.create!({
   user_id: u3.id,
   campaign_id: c1.id,
-  status: "I'm so cool!"
+  message: "I'm so cool!",
+  player_confirm: true,
+  dm_confirm: true
 })
 
 JoinRequest.create!({
   user_id: u3.id,
   campaign_id: c2.id,
-  status: "I'm so sweet!"
+  message: "I'm so sweet!",
+  player_confirm: true,
+  dm_confirm: false
 })
 
 JoinRequest.create!({
   user_id: u3.id,
   campaign_id: c3.id,
-  status: "I'm so awesome!"
+  message: "I'm so awesome!",
+  player_confirm: false,
+  dm_confirm: true
 })
