@@ -9,7 +9,7 @@ class CampaignsController < ApplicationController
     @dm = User.find(@campaign.user_id)
     data = {
       campaign: @campaign,
-      dm: @dm
+      dm: { name: @dm.name }
     }
     render json: data
   end
