@@ -19,7 +19,7 @@ class CampaignsController < ApplicationController
     if @campaign.save
       redirect_to [:campaigns], notice: 'Campaign created!'
     else
-      redirect_to [:campaigns]
+      redirect_to [:campaigns], notice: 'Something went wrong...'
     end
   end
 
