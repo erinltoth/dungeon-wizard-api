@@ -3,6 +3,10 @@ class ApplicationController < ActionController::Base
   before_action :cors_preflight_check
   after_action :cors_set_access_control_headers
 
+  def fallback_index_html
+    render :file => 'public/index.html'
+  end
+
   def cors_set_access_control_headers
     headers['Access-Control-Allow-Origin'] = 'http://localhost:3002'
     headers['Access-Control-Allow-Methods'] = 'POST, GET, PUT, DELETE, OPTIONS'
