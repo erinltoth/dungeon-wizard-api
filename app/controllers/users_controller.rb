@@ -7,7 +7,7 @@ class UsersController < ApplicationController
       @campaigns = JoinRequest.where(["user_id = ? and player_confirm = ? and dm_confirm = ?", user.id, true, true])
       @user_card = {
         user: user,
-        campaigns: @campaigns
+        campaigns: @campaigns.collect { |campaign| campaign.id }
       }
       data.push(@user_card)
     end
