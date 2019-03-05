@@ -23,7 +23,8 @@ class CampaignsController < ApplicationController
     data = {
       campaign: @campaign,
       dm: { name: @dm.name },
-      players: @players
+      players: @players,
+      join_requests: JoinRequest.where(["campaign_id = ?", @campaign.id])
     }
     render json: data
   end
