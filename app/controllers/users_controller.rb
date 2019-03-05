@@ -1,8 +1,17 @@
 class UsersController < ApplicationController
   skip_before_action :verify_authenticity_token
   def index
-    @users = User.all
-    render json: @users
+    @users = User.all.order(created_at: :desc)
+    data = []
+    @users.each do |user|
+      @campaigns = JoinRequest.where(["user_id = ? and player_confirm = ? and dm_confirm = ?", user.id, true, true])
+      @user_card = {
+        user: user,
+        campaigns: @campaigns
+      }
+      data.push(@user_card)
+    end
+    render json: data
   end
 
   def show
