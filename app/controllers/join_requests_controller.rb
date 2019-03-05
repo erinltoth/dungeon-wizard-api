@@ -1,4 +1,5 @@
 class JoinRequestsController < ApplicationController
+  skip_before_action :verify_authenticity_token
   def show
     @join_request = JoinRequest.find params[:id]
     render json: @join_request
