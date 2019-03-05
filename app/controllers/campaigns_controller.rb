@@ -1,4 +1,6 @@
 class CampaignsController < ApplicationController
+  skip_before_action :verify_authenticity_token
+
   def index
     @campaigns = Campaign.all.order(created_at: :desc)
     render json: @campaigns
@@ -22,16 +24,16 @@ class CampaignsController < ApplicationController
     @campaign = Campaign.new(campaign_params)
 
     if @campaign.save
-      redirect_to [:campaigns], notice: 'Campaign created!'
+      render json: @campaign.id
     else
-      redirect_to [:campaigns], notice: 'Something went wrong...'
+      render json: 'Something went wrong...'
     end
   end
 
   def destroy
     @campaign = Campaign.find params[:id]
     @campaign.destroy
-    redirect_to [:campaigns], notice: 'Campaign deleted!'
+    render json: 'Campaign deleted!'
   end
 
   private

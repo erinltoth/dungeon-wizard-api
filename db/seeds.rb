@@ -1,3 +1,5 @@
+require 'faker'
+
 puts "Clearing data..."
 JoinRequest.destroy_all
 UserCampaign.destroy_all
@@ -8,48 +10,150 @@ User.destroy_all
 puts "Re-creating users..."
 
 u1 = User.create!({
-  name: 'Gandalf Grey',
-  email: 'mithran@dir.com',
-  password: 'youshallnotpass',
-  playing_style: "casual",
+  name: Faker::Name.name,
+  email: Faker::Internet.email,
+  password: Faker::Lorem.word,
+  playing_style: "story-focused",
   exp_level: "beginner"
 })
 
 u2 = User.create!({
-  name: 'Gimli Gloin',
-  email: 'thatstillonly@countsasone.com',
-  password: 'nobodytossesadwarf',
+  name: Faker::Name.name,
+  email: Faker::Internet.email,
+  password: Faker::Lorem.word,
   playing_style: "combat-focused",
   exp_level: "beginner"
 })
 
 u3 = User.create!({
-  name: 'Jaime Lannister',
-  email: 'kingslayer@gmail.com',
-  password: 'thethingsidoforlove',
+  name: Faker::Name.name,
+  email: Faker::Internet.email,
+  password: Faker::Lorem.word,
   playing_style: "story-focused",
   exp_level: "expert"
 })
 
+u4 = User.create!({
+  name: Faker::Name.name,
+  email: Faker::Internet.email,
+  password: Faker::Lorem.word,
+  playing_style: "combat-focused",
+  exp_level: "intermediate"
+})
+
+u5 = User.create!({
+  name: Faker::Name.name,
+  email: Faker::Internet.email,
+  password: Faker::Lorem.word,
+  playing_style: "story-focused",
+  exp_level: "wizard"
+})
+
+u6 = User.create!({
+  name: Faker::Name.name,
+  email: Faker::Internet.email,
+  password: Faker::Lorem.word,
+  playing_style: "combat-focused",
+  exp_level: "wizard"
+})
+
+u7 = User.create!({
+  name: Faker::Name.name,
+  email: Faker::Internet.email,
+  password: Faker::Lorem.word,
+  playing_style: "story-focused",
+  exp_level: "intermediate"
+})
+
+5.times {
+  User.create!({
+  name: Faker::Name.name,
+  email: Faker::Internet.email,
+  password: Faker::Lorem.word,
+  playing_style: "story-focused",
+  exp_level: "expert"
+  })
+}
+
+5.times {
+  User.create!({
+  name: Faker::Name.name,
+  email: Faker::Internet.email,
+  password: Faker::Lorem.word,
+  playing_style: "combat-focused",
+  exp_level: "intermediate"
+  })
+}
+
+5.times {
+  User.create!({
+  name: Faker::Name.name,
+  email: Faker::Internet.email,
+  password: Faker::Lorem.word,
+  playing_style: "combat-focused",
+  exp_level: "expert"
+  })
+}
+
 puts "Re-creating campaigns..."
 
 c1 = u1.campaigns.create!({
-  name: 'Awesome Campaign',
-  description: 'Awesome description!',
+  name: Faker::Movies::LordOfTheRings.location,
+  description: Faker::Books::Lovecraft.sentence,
   location: 'Vancouver'
 })
 
 c2 = u1.campaigns.create!({
-  name: 'Awesome Campaign 2',
-  description: 'Awesome description 2!',
-  location: 'Vancouver 2'
+  name: Faker::Movies::LordOfTheRings.location,
+  description: Faker::Books::Lovecraft.sentence,
+  location: 'Vancouver'
 })
 
 c3 = u2.campaigns.create!({
-  name: 'Awesome Campaign 3',
-  description: 'Awesome description 3!',
-  location: 'Vancouver 3'
+  name: Faker::Movies::LordOfTheRings.location,
+  description: Faker::Books::Lovecraft.sentence,
+  location: 'Vancouver'
 })
+
+3.times {
+  u3.campaigns.create!({
+  name: Faker::Movies::LordOfTheRings.location,
+  description: Faker::Books::Lovecraft.sentence,
+  location: 'Vancouver'
+  })
+}
+
+3.times {
+  u4.campaigns.create!({
+  name: Faker::Movies::LordOfTheRings.location,
+  description: Faker::Books::Lovecraft.sentence,
+  location: 'Vancouver'
+  })
+}
+
+3.times {
+  u5.campaigns.create!({
+  name: Faker::Movies::LordOfTheRings.location,
+  description: Faker::Books::Lovecraft.sentence,
+  location: 'Vancouver'
+  })
+}
+
+3.times {
+  u6.campaigns.create!({
+  name: Faker::Movies::LordOfTheRings.location,
+  description: Faker::Books::Lovecraft.sentence,
+  location: 'Vancouver'
+  })
+}
+
+3.times {
+  u7.campaigns.create!({
+  name: Faker::Movies::LordOfTheRings.location,
+  description: Faker::Books::Lovecraft.sentence,
+  location: 'Vancouver'
+  })
+}
 
 
 puts "Re-creating user-campaign connections"
@@ -60,7 +164,27 @@ UserCampaign.create!({
 })
 
 UserCampaign.create!({
+  user_id: u2.id,
+  campaign_id: c1.id
+})
+
+UserCampaign.create!({
+  user_id: u3.id,
+  campaign_id: c1.id
+})
+
+UserCampaign.create!({
+  user_id: u4.id,
+  campaign_id: c1.id
+})
+
+UserCampaign.create!({
   user_id: u1.id,
+  campaign_id: c2.id
+})
+
+UserCampaign.create!({
+  user_id: u2.id,
   campaign_id: c2.id
 })
 
@@ -72,15 +196,15 @@ UserCampaign.create!({
 puts "Re-creating join requests..."
 
 JoinRequest.create!({
-  user_id: u3.id,
+  user_id: u7.id,
   campaign_id: c1.id,
   message: "I'm so cool!",
   player_confirm: true,
-  dm_confirm: true
+  dm_confirm: false
 })
 
 JoinRequest.create!({
-  user_id: u3.id,
+  user_id: u7.id,
   campaign_id: c2.id,
   message: "I'm so sweet!",
   player_confirm: true,
@@ -88,7 +212,7 @@ JoinRequest.create!({
 })
 
 JoinRequest.create!({
-  user_id: u3.id,
+  user_id: u7.id,
   campaign_id: c3.id,
   message: "I'm so awesome!",
   player_confirm: false,
