@@ -22,16 +22,16 @@ class CampaignsController < ApplicationController
     @campaign = Campaign.new(campaign_params)
 
     if @campaign.save
-      redirect_to [:campaigns], notice: 'Campaign created!'
+      render json: 'Campaign created!'
     else
-      redirect_to [:campaigns], notice: 'Something went wrong...'
+      render json: 'Something went wrong...'
     end
   end
 
   def destroy
     @campaign = Campaign.find params[:id]
     @campaign.destroy
-    redirect_to [:campaigns], notice: 'Campaign deleted!'
+    render json: 'Campaign deleted!'
   end
 
   private
