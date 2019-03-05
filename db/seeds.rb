@@ -195,25 +195,65 @@ UserCampaign.create!({
 puts "Re-creating join requests..."
 
 JoinRequest.create!({
-  user_id: u7.id,
+  user_id: u1.id,
   campaign_id: c1.id,
   message: "I'm so cool!",
   player_confirm: true,
-  dm_confirm: false
+  dm_confirm: true
 })
 
 JoinRequest.create!({
-  user_id: u7.id,
+  user_id: u1.id,
   campaign_id: c2.id,
   message: "I'm so sweet!",
   player_confirm: true,
-  dm_confirm: false
+  dm_confirm: true
 })
 
 JoinRequest.create!({
-  user_id: u7.id,
+  user_id: u1.id,
   campaign_id: c3.id,
   message: "I'm so awesome!",
   player_confirm: false,
+  dm_confirm: true
+})
+
+JoinRequest.create!({
+  user_id: u2.id,
+  campaign_id: c2.id,
+  message: "I'm so awesome!",
+  player_confirm: true,
+  dm_confirm: true
+})
+
+JoinRequest.create!({
+  user_id: u2.id,
+  campaign_id: c3.id,
+  message: "I'm so awesome!",
+  player_confirm: true,
+  dm_confirm: true
+})
+
+JoinRequest.create!({
+  user_id: u3.id,
+  campaign_id: c1.id,
+  message: "I'm so awesome!",
+  player_confirm: true,
+  dm_confirm: true
+})
+
+JoinRequest.create!({
+  user_id: u4.id,
+  campaign_id: c1.id,
+  message: "I'm so awesome!",
+  player_confirm: true,
+  dm_confirm: true
+})
+
+JoinRequest.create!({
+  user_id: u5.id,
+  campaign_id: c3.id,
+  message: "I'm so awesome!",
+  player_confirm: true,
   dm_confirm: true
 })
