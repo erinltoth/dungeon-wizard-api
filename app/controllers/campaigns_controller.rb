@@ -22,7 +22,7 @@ class CampaignsController < ApplicationController
     @campaign = Campaign.new(campaign_params)
 
     if @campaign.save
-      render json: 'Campaign created!'
+      render json: @campaign.id
     else
       render json: 'Something went wrong...'
     end
