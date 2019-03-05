@@ -1,4 +1,6 @@
 class CampaignsController < ApplicationController
+  skip_before_action :verify_authenticity_token
+
   def index
     @campaigns = Campaign.all.order(created_at: :desc)
     render json: @campaigns
