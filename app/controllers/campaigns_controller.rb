@@ -3,7 +3,16 @@ class CampaignsController < ApplicationController
 
   def index
     @campaigns = Campaign.all.order(created_at: :desc)
-    render json: @campaigns
+    data = []
+    @campaigns.each do |campaign|
+      @dm = User.find(campaign.user_id)
+      @campaign_card = {
+        campaign: campaign,
+        dm: { name: @dm.name }
+      }
+      data.push(@campaign_card)
+    end
+    render json: data
   end
 
   def show
