@@ -20,11 +20,15 @@ class CampaignsController < ApplicationController
     @dm = User.find(@campaign.user_id)
     @memberships = JoinRequest.where(["campaign_id = ? and player_confirm = ? and dm_confirm = ?", @campaign.id, true, true])
     @players = @memberships.collect { |membership| User.find(membership.user_id) }
+    @joinrequests = JoinRequest.where(["campaign_id = ?", @campaign.id])
+    @fullrequests = @joinrequests.collect { |request|
+      {request: request, user: User.find(request.user_id)}
+    }
     data = {
       campaign: @campaign,
       dm: { name: @dm.name },
       players: @players,
-      join_requests: JoinRequest.where(["campaign_id = ?", @campaign.id])
+      join_requests: @fullrequests
     }
     render json: data
   end
