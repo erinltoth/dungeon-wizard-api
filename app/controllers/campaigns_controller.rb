@@ -47,6 +47,15 @@ class CampaignsController < ApplicationController
     end
   end
 
+  def update
+    @campaign = Campaign.find params[:id]
+    if @campaign.update(campaign_params)
+      render json: 'Campaign updated!'
+    else
+      render json: 'Update failed'
+    end
+  end
+
   def destroy
     @campaign = Campaign.find params[:id]
     @campaign.destroy
@@ -60,7 +69,9 @@ class CampaignsController < ApplicationController
       :name,
       :user_id,
       :description,
-      :location
+      :location,
+      :playing_style,
+      :exp_level
     )
   end
 end
