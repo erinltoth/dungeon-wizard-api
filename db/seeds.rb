@@ -99,26 +99,34 @@ puts "Re-creating campaigns..."
 c1 = u1.campaigns.create!({
   name: Faker::Movies::LordOfTheRings.location,
   description: Faker::Books::Lovecraft.sentence,
-  location: 'Vancouver'
+  location: 'Vancouver',
+  playing_style: "combat-focused",
+  exp_level: "intermediate"
 })
 
 c2 = u1.campaigns.create!({
   name: Faker::Movies::LordOfTheRings.location,
   description: Faker::Books::Lovecraft.sentence,
-  location: 'Vancouver'
+  location: 'Vancouver',
+  playing_style: "story-focused",
+  exp_level: "beginner"
 })
 
 c3 = u2.campaigns.create!({
   name: Faker::Movies::LordOfTheRings.location,
   description: Faker::Books::Lovecraft.sentence,
-  location: 'Vancouver'
+  location: 'Vancouver',
+  playing_style: "combat-focused",
+  exp_level: "expert"
 })
 
 3.times {
   u3.campaigns.create!({
   name: Faker::Movies::LordOfTheRings.location,
   description: Faker::Books::Lovecraft.sentence,
-  location: 'Vancouver'
+  location: 'Vancouver',
+  playing_style: "story-focused",
+  exp_level: "intermediate"
   })
 }
 
@@ -126,7 +134,9 @@ c3 = u2.campaigns.create!({
   u4.campaigns.create!({
   name: Faker::Movies::LordOfTheRings.location,
   description: Faker::Books::Lovecraft.sentence,
-  location: 'Vancouver'
+  location: 'Vancouver',
+  playing_style: "combat-focused",
+  exp_level: "beginner"
   })
 }
 
@@ -134,7 +144,9 @@ c3 = u2.campaigns.create!({
   u5.campaigns.create!({
   name: Faker::Movies::LordOfTheRings.location,
   description: Faker::Books::Lovecraft.sentence,
-  location: 'Vancouver'
+  location: 'Vancouver',
+  playing_style: "combat-focused",
+  exp_level: "expert"
   })
 }
 
@@ -142,7 +154,9 @@ c3 = u2.campaigns.create!({
   u6.campaigns.create!({
   name: Faker::Movies::LordOfTheRings.location,
   description: Faker::Books::Lovecraft.sentence,
-  location: 'Vancouver'
+  location: 'Vancouver',
+  playing_style: "story-focused",
+  exp_level: "expert"
   })
 }
 
@@ -150,7 +164,9 @@ c3 = u2.campaigns.create!({
   u7.campaigns.create!({
   name: Faker::Movies::LordOfTheRings.location,
   description: Faker::Books::Lovecraft.sentence,
-  location: 'Vancouver'
+  location: 'Vancouver',
+  playing_style: "story-focused",
+  exp_level: "intermediate"
   })
 }
 
