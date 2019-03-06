@@ -20,11 +20,15 @@ class CampaignsController < ApplicationController
     @dm = User.find(@campaign.user_id)
     @memberships = JoinRequest.where(["campaign_id = ? and player_confirm = ? and dm_confirm = ?", @campaign.id, true, true])
     @players = @memberships.collect { |membership| User.find(membership.user_id) }
+    @joinrequests = JoinRequest.where(["campaign_id = ?", @campaign.id])
+    @fullrequests = @joinrequests.collect { |request|
+      {request: request, user: User.find(request.user_id)}
+    }
     data = {
       campaign: @campaign,
       dm: { name: @dm.name },
       players: @players,
-      join_requests: JoinRequest.where(["campaign_id = ?", @campaign.id])
+      join_requests: @fullrequests
     }
     render json: data
   end
@@ -43,6 +47,15 @@ class CampaignsController < ApplicationController
     end
   end
 
+  def update
+    @campaign = Campaign.find params[:id]
+    if @campaign.update(campaign_params)
+      render json: 'Campaign updated!'
+    else
+      render json: 'Update failed'
+    end
+  end
+
   def destroy
     @campaign = Campaign.find params[:id]
     @campaign.destroy
@@ -56,7 +69,9 @@ class CampaignsController < ApplicationController
       :name,
       :user_id,
       :description,
-      :location
+      :location,
+      :playing_style,
+      :exp_level
     )
   end
 end
