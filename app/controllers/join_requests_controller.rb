@@ -14,7 +14,7 @@ class JoinRequestsController < ApplicationController
     @join_request = JoinRequest.new(join_request_params)
 
     if @join_request.save
-      render json: request:@join_request
+      render json: @join_request
     else
       redirect_to [:campaigns], notice: 'Something went wrong...'
     end
