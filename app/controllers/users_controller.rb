@@ -4,12 +4,13 @@ class UsersController < ApplicationController
     @users = User.all.order(created_at: :desc)
     data = []
     @users.each do |user|
-      @owned_campaigns = JoinRequest.where(["user_id = ? and dm_confirm = ?", user.id, "accepted"])
+      @owned_campaigns = Campaign.where(["user_id = ?", user.id])
       @campaigns = JoinRequest.where(["user_id = ? and dm_confirm = ?", user.id,  "accepted"])
       puts @campaigns
       @user_card = {
         user: user,
-        campaigns: @campaigns.collect { |campaign| campaign.id }
+        campaigns: @campaigns.collect { |campaign| campaign.id },
+        owned_campaigns: @owned_campaigns.collect { |campaign| campaign.id }
       }
       data.push(@user_card)
     end
