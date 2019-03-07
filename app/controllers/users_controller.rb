@@ -19,12 +19,14 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find params[:id]
-    @memberships = JoinRequest.where(["user_id = ? and player_confirm = ? and dm_confirm = ?", @user.id, true, "approved"])
+    @memberships = JoinRequest.where(["user_id = ? and dm_confirm = ?", @user.id, "accepted"])
     @campaigns = @memberships.collect { |membership| Campaign.find(membership.campaign_id) }
+    @owned_campaigns = Campaign.where(["user_id = ?", @user.id])
     @join_requests = JoinRequest.where(["user_id = ?", @user.id])
     data = {
       user: @user,
-      campaigns: @campaigns,
+      campaigns: @memberships,
+      owned_campaigns: @owned_campaigns,
       join_requests: @join_requests
     }
     render json: data
