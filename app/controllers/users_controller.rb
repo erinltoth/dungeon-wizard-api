@@ -4,7 +4,7 @@ class UsersController < ApplicationController
     @users = User.all.order(created_at: :desc)
     data = []
     @users.each do |user|
-      @campaigns = JoinRequest.where(["user_id = ? and player_confirm = ? and dm_confirm = ?", user.id, true, true])
+      @campaigns = JoinRequest.where(["user_id = ? and player_confirm = ? and dm_confirm = ?", user.id, true, "approved"])
       @user_card = {
         user: user,
         campaigns: @campaigns.collect { |campaign| campaign.id }
@@ -16,7 +16,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find params[:id]
-    @memberships = JoinRequest.where(["user_id = ? and player_confirm = ? and dm_confirm = ?", @user.id, true, true])
+    @memberships = JoinRequest.where(["user_id = ? and player_confirm = ? and dm_confirm = ?", @user.id, true, "approved"])
     @campaigns = @memberships.collect { |membership| Campaign.find(membership.campaign_id) }
     @join_requests = JoinRequest.where(["user_id = ?", @user.id])
     data = {
