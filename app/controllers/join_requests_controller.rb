@@ -22,7 +22,7 @@ class JoinRequestsController < ApplicationController
 
   def update
     @join_request = JoinRequest.find params[:id]
-    if @join_request.update(user_params)
+    if @join_request.update(join_request_params)
       render json: 'Account updated!'
     else
       render json: 'Update failed'
@@ -38,7 +38,8 @@ class JoinRequestsController < ApplicationController
   private
 
   def join_request_params
-    params.require(:join_request).permit(
+    params.permit(
+      :join_request,
       :message,
       :player_confirm,
       :dm_confirm,
