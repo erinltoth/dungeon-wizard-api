@@ -20,6 +20,15 @@ class JoinRequestsController < ApplicationController
     end
   end
 
+  def update
+    @join_request = JoinRequest.find params[:id]
+    if @join_request.update(user_params)
+      render json: 'Account updated!'
+    else
+      render json: 'Update failed'
+    end
+  end
+
   def destroy
     @join_request = JoinRequest.find params[:id]
     @join_request.destroy
