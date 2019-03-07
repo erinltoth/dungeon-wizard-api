@@ -215,7 +215,7 @@ JoinRequest.create!({
   campaign_id: c1.id,
   message: "I'm so cool!",
   player_confirm: true,
-  dm_confirm: true
+  dm_confirm: "pending"
 })
 
 JoinRequest.create!({
@@ -223,7 +223,7 @@ JoinRequest.create!({
   campaign_id: c2.id,
   message: "I'm so sweet!",
   player_confirm: true,
-  dm_confirm: true
+  dm_confirm: "pending"
 })
 
 JoinRequest.create!({
@@ -231,7 +231,7 @@ JoinRequest.create!({
   campaign_id: c3.id,
   message: "I'm so awesome!",
   player_confirm: false,
-  dm_confirm: true
+  dm_confirm: "accepted"
 })
 
 JoinRequest.create!({
@@ -239,7 +239,7 @@ JoinRequest.create!({
   campaign_id: c2.id,
   message: "I'm so awesome!",
   player_confirm: true,
-  dm_confirm: true
+  dm_confirm: "accepted"
 })
 
 JoinRequest.create!({
@@ -247,7 +247,7 @@ JoinRequest.create!({
   campaign_id: c3.id,
   message: "I'm so awesome!",
   player_confirm: true,
-  dm_confirm: true
+  dm_confirm: "accepted"
 })
 
 JoinRequest.create!({
@@ -255,7 +255,7 @@ JoinRequest.create!({
   campaign_id: c1.id,
   message: "I'm so awesome!",
   player_confirm: true,
-  dm_confirm: true
+  dm_confirm: "rejected"
 })
 
 JoinRequest.create!({
@@ -263,7 +263,7 @@ JoinRequest.create!({
   campaign_id: c1.id,
   message: "I'm so awesome!",
   player_confirm: true,
-  dm_confirm: true
+  dm_confirm: "rejected"
 })
 
 JoinRequest.create!({
@@ -271,5 +271,5 @@ JoinRequest.create!({
   campaign_id: c3.id,
   message: "I'm so awesome!",
   player_confirm: true,
-  dm_confirm: true
+  dm_confirm: "pending"
 })
