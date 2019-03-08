@@ -104,7 +104,8 @@ c1 = u1.campaigns.create!({
   playing_style: "combat-focused",
   exp_level: "intermediate",
   player_limit: 6,
-  synopsis: (Faker::Books::Lovecraft.paragraphs).join(' ')
+  synopsis: (Faker::Books::Lovecraft.paragraphs).join(' '),
+  next_session: DateTime.civil_from_format( :local, 2019, 3, 23, 20 )
 })
 
 c2 = u1.campaigns.create!({
@@ -114,7 +115,8 @@ c2 = u1.campaigns.create!({
   playing_style: "story-focused",
   exp_level: "beginner",
   player_limit: 6,
-  synopsis: (Faker::Books::Lovecraft.paragraphs).join(' ')
+  synopsis: (Faker::Books::Lovecraft.paragraphs).join(' '),
+  next_session: DateTime.civil_from_format( :local, 2019, 3, 26, 19 )
 })
 
 c3 = u2.campaigns.create!({
@@ -124,7 +126,8 @@ c3 = u2.campaigns.create!({
   playing_style: "combat-focused",
   exp_level: "expert",
   player_limit: 6,
-  synopsis: (Faker::Books::Lovecraft.paragraphs).join(' ')
+  synopsis: (Faker::Books::Lovecraft.paragraphs).join(' '),
+  next_session: DateTime.civil_from_format( :local, 2019, 3, 27, 12 )
 })
 
 3.times {
@@ -135,7 +138,8 @@ c3 = u2.campaigns.create!({
   playing_style: "story-focused",
   exp_level: "intermediate",
   player_limit: 6,
-  synopsis: (Faker::Books::Lovecraft.paragraphs).join(' ')
+  synopsis: (Faker::Books::Lovecraft.paragraphs).join(' '),
+  next_session: DateTime.civil_from_format( :local, 2019, 3, 18, 18 )
   })
 }
 
@@ -147,7 +151,8 @@ c3 = u2.campaigns.create!({
   playing_style: "combat-focused",
   exp_level: "beginner",
   player_limit: 6,
-  synopsis: (Faker::Books::Lovecraft.paragraphs).join(' ')
+  synopsis: (Faker::Books::Lovecraft.paragraphs).join(' '),
+  next_session: DateTime.civil_from_format( :local, 2019, 3, 22, 19 )
   })
 }
 
@@ -159,7 +164,8 @@ c3 = u2.campaigns.create!({
   playing_style: "combat-focused",
   exp_level: "expert",
   player_limit: 6,
-  synopsis: (Faker::Books::Lovecraft.paragraphs).join(' ')
+  synopsis: (Faker::Books::Lovecraft.paragraphs).join(' '),
+  next_session: DateTime.civil_from_format( :local, 2019, 3, 16, 18 )
   })
 }
 
@@ -171,7 +177,8 @@ c3 = u2.campaigns.create!({
   playing_style: "story-focused",
   exp_level: "expert",
   player_limit: 6,
-  synopsis: (Faker::Books::Lovecraft.paragraphs).join(' ')
+  synopsis: (Faker::Books::Lovecraft.paragraphs).join(' '),
+  next_session: DateTime.civil_from_format( :local, 2019, 3, 19, 19 )
   })
 }
 
@@ -183,7 +190,8 @@ c3 = u2.campaigns.create!({
   playing_style: "story-focused",
   exp_level: "intermediate",
   player_limit: 6,
-  synopsis: (Faker::Books::Lovecraft.paragraphs).join(' ')
+  synopsis: (Faker::Books::Lovecraft.paragraphs).join(' '),
+  next_session: DateTime.civil_from_format( :local, 2019, 3, 18, 19 )
   })
 }
 
