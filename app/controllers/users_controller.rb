@@ -4,10 +4,13 @@ class UsersController < ApplicationController
     @users = User.all.order(created_at: :desc)
     data = []
     @users.each do |user|
-      @campaigns = JoinRequest.where(["user_id = ? and player_confirm = ? and dm_confirm = ?", user.id, true, true])
+      @owned_campaigns = Campaign.where(["user_id = ?", user.id])
+      @campaigns = JoinRequest.where(["user_id = ? and dm_confirm = ?", user.id,  "accepted"])
+      puts @campaigns
       @user_card = {
         user: user,
-        campaigns: @campaigns.collect { |campaign| campaign.id }
+        campaigns: @campaigns.collect { |campaign| campaign.id },
+        owned_campaigns: @owned_campaigns.collect { |campaign| campaign.id }
       }
       data.push(@user_card)
     end
@@ -16,12 +19,14 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find params[:id]
-    @memberships = JoinRequest.where(["user_id = ? and player_confirm = ? and dm_confirm = ?", @user.id, true, true])
+    @memberships = JoinRequest.where(["user_id = ? and dm_confirm = ?", @user.id, "accepted"])
     @campaigns = @memberships.collect { |membership| Campaign.find(membership.campaign_id) }
+    @owned_campaigns = Campaign.where(["user_id = ?", @user.id])
     @join_requests = JoinRequest.where(["user_id = ?", @user.id])
     data = {
       user: @user,
-      campaigns: @campaigns,
+      campaigns: @memberships,
+      owned_campaigns: @owned_campaigns,
       join_requests: @join_requests
     }
     render json: data
