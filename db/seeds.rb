@@ -9,12 +9,24 @@ User.destroy_all
 
 puts "Re-creating users..."
 
+Avatars = ["https://bit.ly/2XGVwkU",
+        "https://bit.ly/2tX8YU2",
+        "https://bit.ly/2H7saHd",
+        "https://bit.ly/2CaG1bT",
+        "https://bit.ly/2H4WFxy",
+        "https://bit.ly/2TIELH6",
+        "https://bit.ly/2VG0jRM",
+        "https://bit.ly/2EWW1ji",
+        "https://bit.ly/2tUndsO"]
+
+
 u1 = User.create!({
   name: Faker::Name.name,
   email: Faker::Internet.email,
   password: Faker::Lorem.word,
   playing_style: "story-focused",
-  exp_level: "beginner"
+  exp_level: "beginner",
+  avatar: Avatars.sample
 })
 
 u2 = User.create!({
@@ -22,7 +34,8 @@ u2 = User.create!({
   email: Faker::Internet.email,
   password: Faker::Lorem.word,
   playing_style: "combat-focused",
-  exp_level: "beginner"
+  exp_level: "beginner",
+  avatar: Avatars.sample
 })
 
 u3 = User.create!({
@@ -30,7 +43,8 @@ u3 = User.create!({
   email: Faker::Internet.email,
   password: Faker::Lorem.word,
   playing_style: "story-focused",
-  exp_level: "expert"
+  exp_level: "expert",
+  avatar: Avatars.sample
 })
 
 u4 = User.create!({
@@ -38,7 +52,8 @@ u4 = User.create!({
   email: Faker::Internet.email,
   password: Faker::Lorem.word,
   playing_style: "combat-focused",
-  exp_level: "intermediate"
+  exp_level: "intermediate",
+  avatar: Avatars.sample
 })
 
 u5 = User.create!({
@@ -46,7 +61,8 @@ u5 = User.create!({
   email: Faker::Internet.email,
   password: Faker::Lorem.word,
   playing_style: "story-focused",
-  exp_level: "wizard"
+  exp_level: "wizard",
+  avatar: Avatars.sample
 })
 
 u6 = User.create!({
@@ -54,7 +70,8 @@ u6 = User.create!({
   email: Faker::Internet.email,
   password: Faker::Lorem.word,
   playing_style: "combat-focused",
-  exp_level: "wizard"
+  exp_level: "wizard",
+  avatar: Avatars.sample
 })
 
 u7 = User.create!({
@@ -62,7 +79,8 @@ u7 = User.create!({
   email: Faker::Internet.email,
   password: Faker::Lorem.word,
   playing_style: "story-focused",
-  exp_level: "intermediate"
+  exp_level: "intermediate",
+  avatar: Avatars.sample
 })
 
 5.times {
@@ -71,7 +89,8 @@ u7 = User.create!({
   email: Faker::Internet.email,
   password: Faker::Lorem.word,
   playing_style: "story-focused",
-  exp_level: "expert"
+  exp_level: "expert",
+  avatar: Avatars.sample
   })
 }
 
@@ -81,7 +100,9 @@ u7 = User.create!({
   email: Faker::Internet.email,
   password: Faker::Lorem.word,
   playing_style: "combat-focused",
-  exp_level: "intermediate"
+  exp_level: "intermediate",
+  avatar: Avatars.sample
+
   })
 }
 
@@ -91,7 +112,8 @@ u7 = User.create!({
   email: Faker::Internet.email,
   password: Faker::Lorem.word,
   playing_style: "combat-focused",
-  exp_level: "expert"
+  exp_level: "expert",
+  avatar: Avatars.sample
   })
 }
 
