@@ -186,7 +186,6 @@ c3 = u2.campaigns.create!({
   })
 }
 
-
 puts "Re-creating user-campaign connections"
 
 UserCampaign.create!({
