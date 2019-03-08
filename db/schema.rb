@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_07_005914) do
+ActiveRecord::Schema.define(version: 2019_03_08_002407) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,8 @@ ActiveRecord::Schema.define(version: 2019_03_07_005914) do
     t.datetime "updated_at", null: false
     t.string "exp_level"
     t.string "playing_style"
+    t.integer "player_limit"
+    t.text "synoposis"
     t.index ["user_id"], name: "index_campaigns_on_user_id"
   end
 
