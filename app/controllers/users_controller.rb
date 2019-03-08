@@ -25,7 +25,7 @@ class UsersController < ApplicationController
     @join_requests = JoinRequest.where(["user_id = ?", @user.id])
     data = {
       user: @user,
-      campaigns: @memberships,
+      campaigns: @campaigns,
       owned_campaigns: @owned_campaigns,
       join_requests: @join_requests
     }
