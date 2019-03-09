@@ -62,7 +62,8 @@ class UsersController < ApplicationController
       :email,
       :password,
       :playing_style,
-      :exp_level
+      :exp_level,
+      :avatar
     )
   end
 end
