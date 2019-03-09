@@ -10,14 +10,25 @@ User.destroy_all
 puts "Re-creating users..."
 
 Avatars = ["https://bit.ly/2XGVwkU",
-        "https://bit.ly/2tX8YU2",
-        "https://bit.ly/2H7saHd",
-        "https://bit.ly/2CaG1bT",
-        "https://bit.ly/2H4WFxy",
-        "https://bit.ly/2TIELH6",
-        "https://bit.ly/2VG0jRM",
-        "https://bit.ly/2EWW1ji",
-        "https://bit.ly/2tUndsO"]
+          "https://bit.ly/2tX8YU2",
+          "https://bit.ly/2H7saHd",
+          "https://bit.ly/2CaG1bT",
+          "https://bit.ly/2H4WFxy",
+          "https://bit.ly/2TIELH6",
+          "https://bit.ly/2VG0jRM",
+          "https://bit.ly/2EWW1ji",
+          "https://bit.ly/2tUndsO"]
+
+CampaignImages =  ["https://bit.ly/2SSsawu",
+                  "https://bit.ly/2VOZZ3s",
+                  "https://bit.ly/2NP1X0V",
+                  "https://bit.ly/2SSo6w7",
+                  "https://bit.ly/2IZdgVj",
+                  "https://bit.ly/2EWHQtJ",
+                  "https://bit.ly/2EZ35fx",
+                  "https://bit.ly/2H9qb5u",
+                  "https://bit.ly/2VLXpee",
+                  "https://bit.ly/2UtBpEG"]
 
 
 u1 = User.create!({
@@ -127,7 +138,8 @@ c1 = u1.campaigns.create!({
   exp_level: "intermediate",
   player_limit: 6,
   synopsis: (Faker::Books::Lovecraft.paragraphs).join(' '),
-  next_session: DateTime.civil_from_format( :local, 2019, 3, 23, 20 )
+  next_session: DateTime.civil_from_format( :local, 2019, 3, 23, 20 ),
+  image: CampaignImages.sample
 })
 
 c2 = u1.campaigns.create!({
@@ -138,7 +150,8 @@ c2 = u1.campaigns.create!({
   exp_level: "beginner",
   player_limit: 6,
   synopsis: (Faker::Books::Lovecraft.paragraphs).join(' '),
-  next_session: DateTime.civil_from_format( :local, 2019, 3, 26, 19 )
+  next_session: DateTime.civil_from_format( :local, 2019, 3, 26, 19 ),
+  image: CampaignImages.sample
 })
 
 c3 = u2.campaigns.create!({
@@ -149,7 +162,8 @@ c3 = u2.campaigns.create!({
   exp_level: "expert",
   player_limit: 6,
   synopsis: (Faker::Books::Lovecraft.paragraphs).join(' '),
-  next_session: DateTime.civil_from_format( :local, 2019, 3, 27, 12 )
+  next_session: DateTime.civil_from_format( :local, 2019, 3, 27, 12 ),
+  image: CampaignImages.sample
 })
 
 3.times {
@@ -161,7 +175,8 @@ c3 = u2.campaigns.create!({
   exp_level: "intermediate",
   player_limit: 6,
   synopsis: (Faker::Books::Lovecraft.paragraphs).join(' '),
-  next_session: DateTime.civil_from_format( :local, 2019, 3, 18, 18 )
+  next_session: DateTime.civil_from_format( :local, 2019, 3, 18, 18 ),
+  image: CampaignImages.sample
   })
 }
 
@@ -174,7 +189,8 @@ c3 = u2.campaigns.create!({
   exp_level: "beginner",
   player_limit: 6,
   synopsis: (Faker::Books::Lovecraft.paragraphs).join(' '),
-  next_session: DateTime.civil_from_format( :local, 2019, 3, 22, 19 )
+  next_session: DateTime.civil_from_format( :local, 2019, 3, 22, 19 ),
+  image: CampaignImages.sample
   })
 }
 
@@ -187,7 +203,8 @@ c3 = u2.campaigns.create!({
   exp_level: "expert",
   player_limit: 6,
   synopsis: (Faker::Books::Lovecraft.paragraphs).join(' '),
-  next_session: DateTime.civil_from_format( :local, 2019, 3, 16, 18 )
+  next_session: DateTime.civil_from_format( :local, 2019, 3, 16, 18 ),
+  image: CampaignImages.sample
   })
 }
 
@@ -200,7 +217,8 @@ c3 = u2.campaigns.create!({
   exp_level: "expert",
   player_limit: 6,
   synopsis: (Faker::Books::Lovecraft.paragraphs).join(' '),
-  next_session: DateTime.civil_from_format( :local, 2019, 3, 19, 19 )
+  next_session: DateTime.civil_from_format( :local, 2019, 3, 19, 19 ),
+  image: CampaignImages.sample
   })
 }
 
@@ -213,7 +231,8 @@ c3 = u2.campaigns.create!({
   exp_level: "intermediate",
   player_limit: 6,
   synopsis: (Faker::Books::Lovecraft.paragraphs).join(' '),
-  next_session: DateTime.civil_from_format( :local, 2019, 3, 18, 19 )
+  next_session: DateTime.civil_from_format( :local, 2019, 3, 18, 19 ),
+  image: CampaignImages.sample
   })
 }
 
