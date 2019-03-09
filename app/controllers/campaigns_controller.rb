@@ -75,7 +75,8 @@ class CampaignsController < ApplicationController
       :player_limit,
       :synopsis,
       :next_session,
-      :avatar
+      :avatar,
+      :image,
     )
   end
 end

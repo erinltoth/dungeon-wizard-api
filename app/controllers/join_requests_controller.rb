@@ -45,7 +45,6 @@ class JoinRequestsController < ApplicationController
       :dm_confirm,
       :user_id,
       :campaign_id
-     
     )
   end
 end
