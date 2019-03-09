@@ -71,7 +71,10 @@ class CampaignsController < ApplicationController
       :description,
       :location,
       :playing_style,
-      :exp_level
+      :exp_level,
+      :player_limit,
+      :synopsis,
+      :next_session
     )
   end
 end
