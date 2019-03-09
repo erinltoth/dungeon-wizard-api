@@ -72,13 +72,10 @@ class CampaignsController < ApplicationController
       :location,
       :playing_style,
       :exp_level,
-<<<<<<< HEAD
       :player_limit,
       :synopsis,
       :next_session
-=======
       :avatar
->>>>>>> master
     )
   end
 end
