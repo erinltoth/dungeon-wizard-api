@@ -6,9 +6,11 @@ class CampaignsController < ApplicationController
     data = []
     @campaigns.each do |campaign|
       @dm = User.find(campaign.user_id)
+      @players = JoinRequest.where(["campaign_id = ?", campaign.id]) 
       @campaign_card = {
         campaign: campaign,
-        dm: { name: @dm.name }
+        dm: { name: @dm.name },
+        players: @players
       }
       data.push(@campaign_card)
     end
