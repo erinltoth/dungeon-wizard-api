@@ -19,16 +19,20 @@ Avatars = ["https://bit.ly/2XGVwkU",
           "https://bit.ly/2EWW1ji",
           "https://bit.ly/2tUndsO"]
 
-CampaignImages =  ["https://bit.ly/2SSsawu",
-                  "https://bit.ly/2VOZZ3s",
+CampaignImages =  ["https://bit.ly/2VOZZ3s",
                   "https://bit.ly/2NP1X0V",
                   "https://bit.ly/2SSo6w7",
                   "https://bit.ly/2IZdgVj",
                   "https://bit.ly/2EWHQtJ",
-                  "https://bit.ly/2EZ35fx",
                   "https://bit.ly/2H9qb5u",
                   "https://bit.ly/2VLXpee",
-                  "https://bit.ly/2UtBpEG"]
+                  "https://bit.ly/2TsVApR",
+                  "https://bit.ly/2H9B7Qw",
+                  "https://bit.ly/2EMtUCs",
+                  "https://bit.ly/2UsFbOJ",
+                  "https://bit.ly/2EM9KZc",
+                  "https://bit.ly/2TIzBdO",
+                  "https://bit.ly/2Hlac3w"]
 
 
 u1 = User.create!({
