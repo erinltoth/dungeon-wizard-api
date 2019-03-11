@@ -2,7 +2,6 @@ require 'faker'
 
 puts "Clearing data..."
 JoinRequest.destroy_all
-UserCampaign.destroy_all
 Campaign.destroy_all
 User.destroy_all
 
@@ -137,50 +136,78 @@ puts "Re-creating campaigns..."
 c1 = u1.campaigns.create!({
   name: Faker::Movies::LordOfTheRings.location,
   description: Faker::Books::Lovecraft.sentence,
-  location: 'Vancouver',
+  location: Faker::Address.street_address,
   playing_style: "combat-focused",
   exp_level: "intermediate",
   player_limit: 6,
-  synopsis: (Faker::Books::Lovecraft.paragraphs).join(' '),
+  synopsis: (Faker::Books::Lovecraft.paragraphs(5)).join(' '),
   next_session: DateTime.civil_from_format( :local, 2019, 3, 23, 20 ),
-  image: CampaignImages.sample
+  image: CampaignImages.sample,
+  commitment: "long-term",
+  deep_immersion: true,
+  sandbox: true,
+  battle_focused: false,
+  kick_in_the_door: false,
+  exploration: true,
+  random: false
 })
 
 c2 = u1.campaigns.create!({
   name: Faker::Games::ElderScrolls.city,
   description: Faker::Books::Lovecraft.sentence,
-  location: 'Vancouver',
+  location: Faker::Address.street_address,
   playing_style: "story-focused",
   exp_level: "beginner",
   player_limit: 6,
-  synopsis: (Faker::Books::Lovecraft.paragraphs).join(' '),
+  synopsis: (Faker::Books::Lovecraft.paragraphs(5)).join(' '),
   next_session: DateTime.civil_from_format( :local, 2019, 3, 26, 19 ),
-  image: CampaignImages.sample
+  image: CampaignImages.sample,
+  commitment: "single-session",
+  deep_immersion: false,
+  sandbox: true,
+  battle_focused: true,
+  kick_in_the_door: true,
+  exploration: false,
+  random: false
 })
 
 c3 = u2.campaigns.create!({
   name: Faker::Games::Witcher.location,
   description: Faker::Books::Lovecraft.sentence,
-  location: 'Vancouver',
+  location: Faker::Address.street_address,
   playing_style: "combat-focused",
-  exp_level: "expert",
+  exp_level: "wizard",
   player_limit: 6,
-  synopsis: (Faker::Books::Lovecraft.paragraphs).join(' '),
+  synopsis: (Faker::Books::Lovecraft.paragraphs(5)).join(' '),
   next_session: DateTime.civil_from_format( :local, 2019, 3, 27, 12 ),
-  image: CampaignImages.sample
+  image: CampaignImages.sample,
+  commitment: "casual",
+  deep_immersion: false,
+  sandbox: true,
+  battle_focused: false,
+  kick_in_the_door: true,
+  exploration: false,
+  random: true
 })
 
 3.times {
   u3.campaigns.create!({
   name: Faker::Movies::LordOfTheRings.location,
   description: Faker::Books::Lovecraft.sentence,
-  location: 'Vancouver',
+  location: Faker::Address.street_address,
   playing_style: "story-focused",
   exp_level: "intermediate",
   player_limit: 6,
-  synopsis: (Faker::Books::Lovecraft.paragraphs).join(' '),
+  synopsis: (Faker::Books::Lovecraft.paragraphs(5)).join(' '),
   next_session: DateTime.civil_from_format( :local, 2019, 3, 18, 18 ),
-  image: CampaignImages.sample
+  image: CampaignImages.sample,
+  commitment: "long-term",
+  deep_immersion: true,
+  sandbox: false,
+  battle_focused: true,
+  kick_in_the_door: false,
+  exploration: false,
+  random: true
   })
 }
 
@@ -188,13 +215,20 @@ c3 = u2.campaigns.create!({
   u4.campaigns.create!({
   name: Faker::Games::ElderScrolls.city,
   description: Faker::Books::Lovecraft.sentence,
-  location: 'Vancouver',
+  location: Faker::Address.street_address,
   playing_style: "combat-focused",
   exp_level: "beginner",
   player_limit: 6,
-  synopsis: (Faker::Books::Lovecraft.paragraphs).join(' '),
+  synopsis: (Faker::Books::Lovecraft.paragraphs(5)).join(' '),
   next_session: DateTime.civil_from_format( :local, 2019, 3, 22, 19 ),
-  image: CampaignImages.sample
+  image: CampaignImages.sample,
+  commitment: "casual",
+  deep_immersion: true,
+  sandbox: true,
+  battle_focused: false,
+  kick_in_the_door: false,
+  exploration: true,
+  random: false
   })
 }
 
@@ -202,13 +236,20 @@ c3 = u2.campaigns.create!({
   u5.campaigns.create!({
   name: Faker::Games::Witcher.location,
   description: Faker::Books::Lovecraft.sentence,
-  location: 'Vancouver',
+  location: Faker::Address.street_address,
   playing_style: "combat-focused",
   exp_level: "expert",
   player_limit: 6,
-  synopsis: (Faker::Books::Lovecraft.paragraphs).join(' '),
+  synopsis: (Faker::Books::Lovecraft.paragraphs(5)).join(' '),
   next_session: DateTime.civil_from_format( :local, 2019, 3, 16, 18 ),
-  image: CampaignImages.sample
+  image: CampaignImages.sample,
+  commitment: "single-session",
+  deep_immersion: false,
+  sandbox: false,
+  battle_focused: true,
+  kick_in_the_door: true,
+  exploration: false,
+  random: true
   })
 }
 
@@ -216,13 +257,20 @@ c3 = u2.campaigns.create!({
   u6.campaigns.create!({
   name: Faker::Movies::LordOfTheRings.location,
   description: Faker::Books::Lovecraft.sentence,
-  location: 'Vancouver',
+  location: Faker::Address.street_address,
   playing_style: "story-focused",
   exp_level: "expert",
   player_limit: 6,
-  synopsis: (Faker::Books::Lovecraft.paragraphs).join(' '),
+  synopsis: (Faker::Books::Lovecraft.paragraphs(5)).join(' '),
   next_session: DateTime.civil_from_format( :local, 2019, 3, 19, 19 ),
-  image: CampaignImages.sample
+  image: CampaignImages.sample,
+  commitment: "long-term",
+  deep_immersion: true,
+  sandbox: false,
+  battle_focused: true,
+  kick_in_the_door: false,
+  exploration: true,
+  random: false
   })
 }
 
@@ -230,52 +278,22 @@ c3 = u2.campaigns.create!({
   u7.campaigns.create!({
   name: Faker::TvShows::GameOfThrones.city,
   description: Faker::Books::Lovecraft.sentence,
-  location: 'Vancouver',
+  location: Faker::Address.street_address,
   playing_style: "story-focused",
   exp_level: "intermediate",
   player_limit: 6,
-  synopsis: (Faker::Books::Lovecraft.paragraphs).join(' '),
+  synopsis: (Faker::Books::Lovecraft.paragraphs(5)).join(' '),
   next_session: DateTime.civil_from_format( :local, 2019, 3, 18, 19 ),
-  image: CampaignImages.sample
+  image: CampaignImages.sample,
+  commitment: "casual",
+  deep_immersion: true,
+  sandbox: true,
+  battle_focused: false,
+  kick_in_the_door: false,
+  exploration: true,
+  random: false
   })
 }
-
-puts "Re-creating user-campaign connections"
-
-UserCampaign.create!({
-  user_id: u1.id,
-  campaign_id: c1.id
-})
-
-UserCampaign.create!({
-  user_id: u2.id,
-  campaign_id: c1.id
-})
-
-UserCampaign.create!({
-  user_id: u3.id,
-  campaign_id: c1.id
-})
-
-UserCampaign.create!({
-  user_id: u4.id,
-  campaign_id: c1.id
-})
-
-UserCampaign.create!({
-  user_id: u1.id,
-  campaign_id: c2.id
-})
-
-UserCampaign.create!({
-  user_id: u2.id,
-  campaign_id: c2.id
-})
-
-UserCampaign.create!({
-  user_id: u2.id,
-  campaign_id: c3.id
-})
 
 puts "Re-creating join requests..."
 
