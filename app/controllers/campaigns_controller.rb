@@ -6,11 +6,22 @@ class CampaignsController < ApplicationController
     data = []
     @campaigns.each do |campaign|
       @dm = User.find(campaign.user_id)
-      @players = JoinRequest.where(["campaign_id = ?", campaign.id]) 
+      @players = JoinRequest.where(["campaign_id = ?", campaign.id])
+      @all_playing_styles = [
+        { style: "deep_immersion", activated: campaign.deep_immersion },
+        { style: "sandbox", activated: campaign.sandbox },
+        { style: "battle_focused", activated: campaign.battle_focused },
+        { style: "kick_in_the_door", activated: campaign.kick_in_the_door },
+        { style: "exploration", activated: campaign.exploration },
+        { style: "random", activated: campaign.random }
+      ]
+      @filtered_playing_styles = @all_playing_styles.select { |style| style[:activated] == true }
+      @playing_styles = @filtered_playing_styles.collect { |style| style[:style] }
       @campaign_card = {
         campaign: campaign,
         dm: { name: @dm.name },
-        players: @players
+        players: @players,
+        playing_styles: @playing_styles
       }
       data.push(@campaign_card)
     end
@@ -26,11 +37,22 @@ class CampaignsController < ApplicationController
     @fullrequests = @joinrequests.collect { |request|
       {request: request, user: User.find(request.user_id)}
     }
+    @all_playing_styles = [
+        { style: "deep_immersion", activated: @campaign.deep_immersion },
+        { style: "sandbox", activated: @campaign.sandbox },
+        { style: "battle_focused", activated: @campaign.battle_focused },
+        { style: "kick_in_the_door", activated: @campaign.kick_in_the_door },
+        { style: "exploration", activated: @campaign.exploration },
+        { style: "random", activated: @campaign.random }
+      ]
+      @filtered_playing_styles = @all_playing_styles.select { |style| style[:activated] == true }
+      @playing_styles = @filtered_playing_styles.collect { |style| style[:style] }
     data = {
       campaign: @campaign,
       dm: { name: @dm.name },
       players: @players,
-      join_requests: @fullrequests
+      join_requests: @fullrequests,
+      playing_styles: @playing_styles
     }
     render json: data
   end
