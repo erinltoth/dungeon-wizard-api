@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_09_032314) do
+ActiveRecord::Schema.define(version: 2019_03_11_182045) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +28,13 @@ ActiveRecord::Schema.define(version: 2019_03_09_032314) do
     t.text "synopsis"
     t.datetime "next_session"
     t.string "image"
+    t.string "commitment"
+    t.boolean "deep_immersion"
+    t.boolean "sandbox"
+    t.boolean "battle_focused"
+    t.boolean "kick_in_the_door"
+    t.boolean "exploration"
+    t.boolean "random"
     t.index ["user_id"], name: "index_campaigns_on_user_id"
   end
 
@@ -41,15 +48,6 @@ ActiveRecord::Schema.define(version: 2019_03_09_032314) do
     t.string "dm_confirm"
     t.index ["campaign_id"], name: "index_join_requests_on_campaign_id"
     t.index ["user_id"], name: "index_join_requests_on_user_id"
-  end
-
-  create_table "user_campaigns", force: :cascade do |t|
-    t.bigint "user_id"
-    t.bigint "campaign_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["campaign_id"], name: "index_user_campaigns_on_campaign_id"
-    t.index ["user_id"], name: "index_user_campaigns_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -66,6 +64,4 @@ ActiveRecord::Schema.define(version: 2019_03_09_032314) do
   add_foreign_key "campaigns", "users"
   add_foreign_key "join_requests", "campaigns"
   add_foreign_key "join_requests", "users"
-  add_foreign_key "user_campaigns", "campaigns"
-  add_foreign_key "user_campaigns", "users"
 end
