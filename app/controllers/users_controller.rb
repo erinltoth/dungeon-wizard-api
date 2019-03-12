@@ -6,7 +6,6 @@ class UsersController < ApplicationController
     @users.each do |user|
       @owned_campaigns = Campaign.where(["user_id = ?", user.id])
       @campaigns = JoinRequest.where(["user_id = ? and dm_confirm = ?", user.id,  "accepted"])
-      puts @campaigns
       @user_card = {
         user: user,
         campaigns: @campaigns.collect { |campaign| campaign.id },
@@ -21,12 +20,46 @@ class UsersController < ApplicationController
     @user = User.find params[:id]
     @memberships = JoinRequest.where(["user_id = ? and dm_confirm = ?", @user.id, "accepted"])
     @campaigns = @memberships.collect { |membership| Campaign.find(membership.campaign_id) }
+    @campaigns_full = []
+    @campaigns.each do |campaign|
+      @all_playing_styles = [
+        { style: "deep_immersion", activated: campaign.deep_immersion },
+        { style: "sandbox", activated: campaign.sandbox },
+        { style: "battle_focused", activated: campaign.battle_focused },
+        { style: "kick_in_the_door", activated: campaign.kick_in_the_door },
+        { style: "exploration", activated: campaign.exploration },
+        { style: "random", activated: campaign.random }
+      ]
+      @filtered_playing_styles = @all_playing_styles.select { |style| style[:activated] == true }
+      @playing_styles = @filtered_playing_styles.collect { |style| style[:style] }
+      @campaigns_full.push({
+        campaign: campaign,
+        active_playstyles: @playing_styles
+      })
+    end
     @owned_campaigns = Campaign.where(["user_id = ?", @user.id])
+    @owned_campaigns_full = []
+    @owned_campaigns.each do |campaign|
+      @all_playing_styles = [
+        { style: "deep_immersion", activated: campaign.deep_immersion },
+        { style: "sandbox", activated: campaign.sandbox },
+        { style: "battle_focused", activated: campaign.battle_focused },
+        { style: "kick_in_the_door", activated: campaign.kick_in_the_door },
+        { style: "exploration", activated: campaign.exploration },
+        { style: "random", activated: campaign.random }
+      ]
+      @filtered_playing_styles = @all_playing_styles.select { |style| style[:activated] == true }
+      @playing_styles = @filtered_playing_styles.collect { |style| style[:style] }
+      @owned_campaigns_full.push({
+        campaign: campaign,
+        active_playstyles: @playing_styles
+      })
+    end
     @join_requests = JoinRequest.where(["user_id = ?", @user.id])
     data = {
       user: @user,
-      campaigns: @campaigns,
-      owned_campaigns: @owned_campaigns,
+      campaigns: @campaigns_full,
+      owned_campaigns: @owned_campaigns_full,
       join_requests: @join_requests
     }
     render json: data
