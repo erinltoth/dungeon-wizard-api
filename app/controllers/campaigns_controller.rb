@@ -101,6 +101,13 @@ class CampaignsController < ApplicationController
       :next_session,
       :avatar,
       :image,
+      :commitment,
+      :kick_in_the_door,
+      :deep_immersion,
+      :sandbox,
+      :battle_focused,
+      :exploration,
+      :random
     )
   end
 end
