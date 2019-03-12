@@ -281,6 +281,30 @@ c5 = u4.campaigns.create!({
   random: false
 })
 
+c6 = u6.campaigns.create!({
+  name: "The Behemoths of Rhinn",
+  description: "The city of Rhinn was built and rebuilt many times over what was likely millennia. ",
+  location: "401 W Georgia Street",
+  playing_style: "story-focused",
+  exp_level: "beginner",
+  player_limit: 4,
+  synopsis: "The city of Rhinn was built and rebuilt many times over what was likely millennia. Imperial historians would make wild conjectures when it came to how old the city was, but in truth it was a complete mystery to everyone. Digging underneath it's sprawling streets and alleyways, one would find layer upon layer of blackened ash. Legends of gargantuan sieges, catastrophic dragon attacks and violent political subterfuge are quite commonplace among the locals. Needless to say, Rhinn's violent past could only further instill the collective sense of dread when the shapes first started appearing.
+
+  From the start, accounts already varied wildly. Small, skittering, inky black creatures that moved unnaturally fast, across walls and ceilings, oozing in and out of small cracks in the city's stone facades. Hazy, dark mists that would cause one to feel disoriented and barely able to breathe. Stories of disturbing sounds far off in the distance, with patrolling rangers reporting gargantuan, shifting dark shapes on the horizon at night, silent as ghosts.
+  
+  Your party has arrived in Rhinn in the midst of rising panic. While far from outright chaos, tensions are definitely running high. The cityfolk are suspicious of you and reluctant to give information. While some actively avoid you, others seem barely aware that you're even there at all. Staring off into the distance vacantly, as if looking at something no one else can see. As nightfall looms, you're now faced with the choice of paying for an inn to stay the night, or test your luck in the eerily silent streets.
+  ",
+  next_session: DateTime.civil_from_format( :local, 2019, 3, 26, 19 ),
+  image: "https://bit.ly/2EWHQtJ",
+  commitment: "single-session",
+  deep_immersion: false,
+  sandbox: true,
+  battle_focused: true,
+  kick_in_the_door: true,
+  exploration: false,
+  random: false
+})
+
 puts "Re-creating join requests..."
 
 JoinRequest.create!({
