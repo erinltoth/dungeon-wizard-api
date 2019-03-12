@@ -1,24 +1,38 @@
-# README
+# Dungeon Wizard
+Dungeon Wizard is a single-page app that allows users to create an account, browse through a list of Dungeons & Dragons campaigns that are looking for members, and request to join one that interests them. They can filter the list of campaigns based on a number of playing style and experience level options. In response, Dungeon Masters (those who create and manage the campaigns) can create campaigns, approve or reject join requests, and update their campaign page with the next play session date that only their approved players can see. 
+Dungeon Wizard is a React/Rails application. This repository is the Rails back-end; in order to see the entire project please [check out the React front-end repository](https://github.com/pnolan89/dungeon-wizard). 
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+## Motivation
+Dungeon Wizard is the final group project for Web Development bootcamp at Lighthouse Labs. Group members: [Peter Nolan](https://github.com/pnolan89), [Matt Kelly](https://github.com/mattrkelly27), [Erin Toth](https://github.com/erinltoth)
 
-* Ruby version
+## Project Stack
+* Front-end: HTML, CSS, Axios, React-Router, ReactJS, NodeJS
+* Back-end: Ruby on Rails, Postgres
 
-* System dependencies
+## Project Setup
+1. Clone this repository into the folder of your choice.
 
-* Configuration
+2. `bundle install` to install dependancies 
 
-* Database creation
+3. `rake db:create`
 
-* Database initialization
+4. `rake db:migrate`
 
-* How to run the test suite
+5. `rake db:seed` (if you would like the application seeded with data. If you would like to create all data yourself you can omit this step)
 
-* Services (job queues, cache servers, search engines, etc.)
+6. `rails start` (make sure [front-end server](https://github.com/pnolan89/dungeon-wizard) is also downloaded and running)
 
-* Deployment instructions
+7. Navigate to [http://localhost:3002](http://localhost:3002) to see the application in action. If you would like to navigate the information served from the database you can do so via [http://localhost:3000](http://localhost:3000).
 
-* ...
+
+## Screenshots
+
+<img src="https://github.com/pnolan89/dungeon-wizard/blob/master/public/images/campaign-index.png" alt="Campaign Index" width="1000" />
+
+
+<img src="https://github.com/pnolan89/dungeon-wizard/blob/master/public/images/campaign-detail.png" alt="Campaign Detail" width="1000" />
+
+<img src="https://github.com/pnolan89/dungeon-wizard/blob/master/public/images/user-detail.png" alt="User Detail" width="1000" />
+
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
