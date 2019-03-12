@@ -74,7 +74,7 @@ class CampaignsController < ApplicationController
   def update
     @campaign = Campaign.find params[:id]
     if @campaign.update(campaign_params)
-      render json: 'Campaign updated!'
+      render json: @campaign.id
     else
       render json: 'Update failed'
     end
