@@ -234,7 +234,7 @@ c3 = u2.campaigns.create!({
   random: true
 })
 
-c2 = u6.campaigns.create!({
+c4 = u6.campaigns.create!({
   name: "Roots of the Gulthias Tree",
   description: "A world where blights were caused by the death of the vampire Gulthias. We fight to save this world.",
   location: "401 W Georgia Street",
@@ -253,7 +253,7 @@ c2 = u6.campaigns.create!({
   random: false
 })
 
-c2 = u4.campaigns.create!({
+c5 = u4.campaigns.create!({
   name: "The Mad Manor of Astabar",
   description: "A haunted house campaign.",
   location: "123 Vancouver St. Vancouverton VC",
@@ -285,7 +285,7 @@ puts "Re-creating join requests..."
 
 JoinRequest.create!({
   user_id: u1.id,
-  campaign_id: c1.id,
+  campaign_id: c5.id,
   message: "I'm the best at D&D!",
   player_confirm: true,
   dm_confirm: "pending"
@@ -293,7 +293,7 @@ JoinRequest.create!({
 
 JoinRequest.create!({
   user_id: u1.id,
-  campaign_id: c2.id,
+  campaign_id: c6.id,
   message: "I'm incredibly reliable!",
   player_confirm: true,
   dm_confirm: "pending"
@@ -333,7 +333,7 @@ JoinRequest.create!({
 
 JoinRequest.create!({
   user_id: u4.id,
-  campaign_id: c1.id,
+  campaign_id: c4.id,
   message: "I'm so awesome!",
   player_confirm: true,
   dm_confirm: "rejected"
