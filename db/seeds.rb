@@ -133,146 +133,6 @@ u7 = User.create!({
 
 puts "Re-creating campaigns..."
 
-c1 = u1.campaigns.create!({
-  name: Faker::Movies::LordOfTheRings.location,
-  description: Faker::Books::Lovecraft.sentence,
-  location: Faker::Address.street_address,
-  playing_style: "combat-focused",
-  exp_level: "intermediate",
-  player_limit: 6,
-  synopsis: (Faker::Books::Lovecraft.paragraphs(5)).join(' '),
-  next_session: DateTime.civil_from_format( :local, 2019, 3, 23, 20 ),
-  image: CampaignImages.sample,
-  commitment: "long-term",
-  deep_immersion: true,
-  sandbox: true,
-  battle_focused: false,
-  kick_in_the_door: false,
-  exploration: true,
-  random: false
-})
-
-c2 = u1.campaigns.create!({
-  name: Faker::Games::ElderScrolls.city,
-  description: Faker::Books::Lovecraft.sentence,
-  location: Faker::Address.street_address,
-  playing_style: "story-focused",
-  exp_level: "beginner",
-  player_limit: 6,
-  synopsis: (Faker::Books::Lovecraft.paragraphs(5)).join(' '),
-  next_session: DateTime.civil_from_format( :local, 2019, 3, 26, 19 ),
-  image: CampaignImages.sample,
-  commitment: "single-session",
-  deep_immersion: false,
-  sandbox: true,
-  battle_focused: true,
-  kick_in_the_door: true,
-  exploration: false,
-  random: false
-})
-
-c3 = u2.campaigns.create!({
-  name: Faker::Games::Witcher.location,
-  description: Faker::Books::Lovecraft.sentence,
-  location: Faker::Address.street_address,
-  playing_style: "combat-focused",
-  exp_level: "wizard",
-  player_limit: 6,
-  synopsis: (Faker::Books::Lovecraft.paragraphs(5)).join(' '),
-  next_session: DateTime.civil_from_format( :local, 2019, 3, 27, 12 ),
-  image: CampaignImages.sample,
-  commitment: "casual",
-  deep_immersion: false,
-  sandbox: true,
-  battle_focused: false,
-  kick_in_the_door: true,
-  exploration: false,
-  random: true
-})
-
-3.times {
-  u3.campaigns.create!({
-  name: Faker::Movies::LordOfTheRings.location,
-  description: Faker::Books::Lovecraft.sentence,
-  location: Faker::Address.street_address,
-  playing_style: "story-focused",
-  exp_level: "intermediate",
-  player_limit: 6,
-  synopsis: (Faker::Books::Lovecraft.paragraphs(5)).join(' '),
-  next_session: DateTime.civil_from_format( :local, 2019, 3, 18, 18 ),
-  image: CampaignImages.sample,
-  commitment: "long-term",
-  deep_immersion: true,
-  sandbox: false,
-  battle_focused: true,
-  kick_in_the_door: false,
-  exploration: false,
-  random: true
-  })
-}
-
-3.times {
-  u4.campaigns.create!({
-  name: Faker::Games::ElderScrolls.city,
-  description: Faker::Books::Lovecraft.sentence,
-  location: Faker::Address.street_address,
-  playing_style: "combat-focused",
-  exp_level: "beginner",
-  player_limit: 6,
-  synopsis: (Faker::Books::Lovecraft.paragraphs(5)).join(' '),
-  next_session: DateTime.civil_from_format( :local, 2019, 3, 22, 19 ),
-  image: CampaignImages.sample,
-  commitment: "casual",
-  deep_immersion: true,
-  sandbox: true,
-  battle_focused: false,
-  kick_in_the_door: false,
-  exploration: true,
-  random: false
-  })
-}
-
-3.times {
-  u5.campaigns.create!({
-  name: Faker::Games::Witcher.location,
-  description: Faker::Books::Lovecraft.sentence,
-  location: Faker::Address.street_address,
-  playing_style: "combat-focused",
-  exp_level: "expert",
-  player_limit: 6,
-  synopsis: (Faker::Books::Lovecraft.paragraphs(5)).join(' '),
-  next_session: DateTime.civil_from_format( :local, 2019, 3, 16, 18 ),
-  image: CampaignImages.sample,
-  commitment: "single-session",
-  deep_immersion: false,
-  sandbox: false,
-  battle_focused: true,
-  kick_in_the_door: true,
-  exploration: false,
-  random: true
-  })
-}
-
-3.times {
-  u6.campaigns.create!({
-  name: Faker::Movies::LordOfTheRings.location,
-  description: Faker::Books::Lovecraft.sentence,
-  location: Faker::Address.street_address,
-  playing_style: "story-focused",
-  exp_level: "expert",
-  player_limit: 6,
-  synopsis: (Faker::Books::Lovecraft.paragraphs(5)).join(' '),
-  next_session: DateTime.civil_from_format( :local, 2019, 3, 19, 19 ),
-  image: CampaignImages.sample,
-  commitment: "long-term",
-  deep_immersion: true,
-  sandbox: false,
-  battle_focused: true,
-  kick_in_the_door: false,
-  exploration: true,
-  random: false
-  })
-}
 
 3.times {
   u7.campaigns.create!({
@@ -295,12 +155,138 @@ c3 = u2.campaigns.create!({
   })
 }
 
+
+3.times {
+  u4.campaigns.create!({
+  name: Faker::Games::ElderScrolls.city,
+  description: Faker::Books::Lovecraft.sentence,
+  location: Faker::Address.street_address,
+  playing_style: "combat-focused",
+  exp_level: "beginner",
+  player_limit: 6,
+  synopsis: (Faker::Books::Lovecraft.paragraphs(5)).join(' '),
+  next_session: DateTime.civil_from_format( :local, 2019, 3, 22, 19 ),
+  image: CampaignImages.sample,
+  commitment: "casual",
+  deep_immersion: true,
+  sandbox: true,
+  battle_focused: false,
+  kick_in_the_door: false,
+  exploration: true,
+  random: false
+  })
+}
+
+c1 = u1.campaigns.create!({
+  name: "An Odyssey On the Sea",
+  description: "Our hero Odysseus and his band of sailors sail the high seas in search of Penelope ",
+  location: "Greece",
+  playing_style: "story-focused",
+  exp_level: "intermediate",
+  player_limit: 5,
+  synopsis: "It has been thirty years since Odysseus has seen his beloved Penelope. His heart tells him she is still alive, but he has no clue where she is. His search so far has taken him through every manner of harrowing circumstance, and every time Odysseus has come out on top. His crew seems as bright and spritely as when they began their search. The memory of pas victories gives our hero the strength he needs to go on... soon he will be reunited with Penelope and be able to live out his days away from the dangers that come with a seafaring life. ",
+  next_session: DateTime.civil_from_format( :local, 2019, 3, 26, 19 ),
+  image: "https://bit.ly/2NP1X0V",
+  commitment: "long-term",
+  deep_immersion: true,
+  sandbox: true,
+  battle_focused: false,
+  kick_in_the_door: false,
+  exploration: true,
+  random: false
+})
+
+c2 = u1.campaigns.create!({
+  name: "Hawaii 5-0",
+  description: "A grim excursion to an abandoned island just outside Maui.",
+  location: "123 Vancouver St. Vancouverton VC",
+  playing_style: "story-focused",
+  exp_level: "beginner",
+  player_limit: 4,
+  synopsis: "There is smoke in the distance. You look back at the the group and see they haven't noticed yet. It seems as though they wouldn't notice if you didn't point it out, but at this point it is all you can see. You are doubting whether or not the trip is a good idea, the stories you have heard haven't been pretty... The island has to be haunted, there's no other explanation. A silence falls over your 20ft dingy... they see the smoke too. ",
+  next_session: DateTime.civil_from_format( :local, 2019, 3, 26, 19 ),
+  image: "https://bit.ly/2EWHQtJ",
+  commitment: "single-session",
+  deep_immersion: false,
+  sandbox: true,
+  battle_focused: true,
+  kick_in_the_door: true,
+  exploration: false,
+  random: false
+})
+
+c3 = u2.campaigns.create!({
+  name: "Besla Raiders",
+  description: "A hot headed group of teenagers buy futuristic Besla cars in order to find the lost tomb of Leon Pusk...",
+  location: "North Shore",
+  playing_style: "story-focused",
+  exp_level: "expert",
+  player_limit: 3,
+  synopsis: "It is day three of our quest. We have all left our lives behind us in order to give 100% of our efforts to what lies ahead. Bright, crisp days fly by as we sink deeper into our mission... it is burning between each of our ears from morning until night: to find the lost tomb of Leon Pusk. Our mission began one year ago almost exactly in a Besla recharging station. One of those old, classic recharging stations that let you sit down on the patio and sell you sample the local food pills. An old man came up to us, seemingly inebriated. He was babbling incessantly, obviously trying to get something very serious across. A few seconds into his soliloquy a package fell out of his jacket pocket onto the table. The big thud took everyone by surprise. As soon as the mas came he left in a confused histeria, taking no notice of the fallen package. Immediately we discovered what this was... a locator from Area 52. It wanted to be brought to the lost tomb of Leon Pusk.",
+  next_session: DateTime.civil_from_format( :local, 2019, 3, 27, 12 ),
+  image: "https://bit.ly/2EMtUCs",
+  commitment: "casual",
+  deep_immersion: false,
+  sandbox: true,
+  battle_focused: false,
+  kick_in_the_door: true,
+  exploration: false,
+  random: true
+})
+
+c2 = u6.campaigns.create!({
+  name: "Roots of the Gulthias Tree",
+  description: "A world where blights were caused by the death of the vampire Gulthias. We fight to save this world.",
+  location: "401 W Georgia Street",
+  playing_style: "story-focused",
+  exp_level: "beginner",
+  player_limit: 4,
+  synopsis: "Legends tell of a vampire named Gulthias who worked terrible magic and raised up an abominable tower called Nightfang Spire. Gulthias was undone when a hero plunged a wooden stake through his heart, but as the vampire was destroyed, his blood infused the stake with a dreadful power. In time, tendrils of new growth sprouted from the wood, growing into a sapling infused with the vampire’s evil essence. It is said that a mad druid discovered the sapling, transplanting it to an underground grotto where it could grow. From this Gulthias tree came the seeds from which the first blights were sown.",
+  next_session: DateTime.civil_from_format( :local, 2019, 3, 26, 19 ),
+  image: "https://bit.ly/2EWHQtJ",
+  commitment: "single-session",
+  deep_immersion: false,
+  sandbox: true,
+  battle_focused: true,
+  kick_in_the_door: true,
+  exploration: false,
+  random: false
+})
+
+c2 = u4.campaigns.create!({
+  name: "The Mad Manor of Astabar",
+  description: "A haunted house campaign.",
+  location: "123 Vancouver St. Vancouverton VC",
+  playing_style: "story-focused",
+  exp_level: "beginner",
+  player_limit: 4,
+  synopsis: "You have few complaints this night as you rest in the common room of the Crooked Crow Inn. While winter has passed, the night air carries enough of a chill to make any hearth a welcome sight. 
+
+  The village of Havehollow is typical for this part of the realm. Livelihoods made from farming and livestock with a few merchants and the Inn catering to travelers along the kingsroad. Good folk who know that hard work is what's needed to make it through harsh times.
+  
+  As you finish your meal you notice a fellow traveler, a raven haired woman, walk to the front of the common room with lyre in hand. She plucks a few practice cords then breaks into song.
+  
+  Seasons come and go
+  Moons wax and wane
+  Time seems so slow
+  To the spirits of Havehollow...",
+  next_session: DateTime.civil_from_format( :local, 2019, 3, 26, 19 ),
+  image: "https://bit.ly/2EWHQtJ",
+  commitment: "single-session",
+  deep_immersion: false,
+  sandbox: true,
+  battle_focused: true,
+  kick_in_the_door: true,
+  exploration: false,
+  random: false
+})
+
 puts "Re-creating join requests..."
 
 JoinRequest.create!({
   user_id: u1.id,
   campaign_id: c1.id,
-  message: "I'm so cool!",
+  message: "I'm the best at D&D!",
   player_confirm: true,
   dm_confirm: "pending"
 })
@@ -308,7 +294,7 @@ JoinRequest.create!({
 JoinRequest.create!({
   user_id: u1.id,
   campaign_id: c2.id,
-  message: "I'm so sweet!",
+  message: "I'm incredibly reliable!",
   player_confirm: true,
   dm_confirm: "pending"
 })
@@ -324,7 +310,7 @@ JoinRequest.create!({
 JoinRequest.create!({
   user_id: u2.id,
   campaign_id: c2.id,
-  message: "I'm so awesome!",
+  message: "I'll bring awesome snacks!",
   player_confirm: true,
   dm_confirm: "accepted"
 })
@@ -332,7 +318,7 @@ JoinRequest.create!({
 JoinRequest.create!({
   user_id: u2.id,
   campaign_id: c3.id,
-  message: "I'm so awesome!",
+  message: "I can drive other people!",
   player_confirm: true,
   dm_confirm: "accepted"
 })
@@ -340,7 +326,7 @@ JoinRequest.create!({
 JoinRequest.create!({
   user_id: u3.id,
   campaign_id: c1.id,
-  message: "I'm so awesome!",
+  message: "I need new friends and you seem cool!",
   player_confirm: true,
   dm_confirm: "rejected"
 })
