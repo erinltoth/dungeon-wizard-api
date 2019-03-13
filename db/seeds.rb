@@ -260,12 +260,12 @@ c5 = u4.campaigns.create!({
   playing_style: "story-focused",
   exp_level: "beginner",
   player_limit: 4,
-  synopsis: "You have few complaints this night as you rest in the common room of the Crooked Crow Inn. While winter has passed, the night air carries enough of a chill to make any hearth a welcome sight. 
+  synopsis: "You have few complaints this night as you rest in the common room of the Crooked Crow Inn. While winter has passed, the night air carries enough of a chill to make any hearth a welcome sight.
 
   The village of Havehollow is typical for this part of the realm. Livelihoods made from farming and livestock with a few merchants and the Inn catering to travelers along the kingsroad. Good folk who know that hard work is what's needed to make it through harsh times.
-  
+
   As you finish your meal you notice a fellow traveler, a raven haired woman, walk to the front of the common room with lyre in hand. She plucks a few practice cords then breaks into song.
-  
+
   Seasons come and go
   Moons wax and wane
   Time seems so slow
@@ -288,10 +288,10 @@ c6 = u6.campaigns.create!({
   playing_style: "story-focused",
   exp_level: "beginner",
   player_limit: 4,
-  synopsis: "The city of Rhinn was built and rebuilt many times over what was likely millennia. Imperial historians would make wild conjectures when it came to how old the city was, but in truth it was a complete mystery to everyone. Digging underneath it's sprawling streets and alleyways, one would find layer upon layer of blackened ash. Legends of gargantuan sieges, catastrophic dragon attacks and violent political subterfuge are quite commonplace among the locals. Needless to say, Rhinn's violent past could only further instill the collective sense of dread when the shapes first started appearing.
+  synopsis: "The city of Rhinn was built and rebuilt many times over what was likely millennia. Imperial historians would make wild conjectures when it came to how old the city was, but in truth it was a complete mystery to everyone. Digging underneath it's sprawling streets and alleyways, one would find layer upon layer of blackened ash. Legends of gargantuan sieges, catastrophic dragon attacks and violent political subterfuge are quite commonplace among the locals. Needless to say, Rhinn's violent past could only further instill the collective sense of dread when the shapes first started appearing.<br />
 
-  From the start, accounts already varied wildly. Small, skittering, inky black creatures that moved unnaturally fast, across walls and ceilings, oozing in and out of small cracks in the city's stone facades. Hazy, dark mists that would cause one to feel disoriented and barely able to breathe. Stories of disturbing sounds far off in the distance, with patrolling rangers reporting gargantuan, shifting dark shapes on the horizon at night, silent as ghosts.
-  
+  From the start, accounts already varied wildly. Small, skittering, inky black creatures that moved unnaturally fast, across walls and ceilings, oozing in and out of small cracks in the city's stone facades. Hazy, dark mists that would cause one to feel disoriented and barely able to breathe. Stories of disturbing sounds far off in the distance, with patrolling rangers reporting gargantuan, shifting dark shapes on the horizon at night, silent as ghosts.<br />
+
   Your party has arrived in Rhinn in the midst of rising panic. While far from outright chaos, tensions are definitely running high. The cityfolk are suspicious of you and reluctant to give information. While some actively avoid you, others seem barely aware that you're even there at all. Staring off into the distance vacantly, as if looking at something no one else can see. As nightfall looms, you're now faced with the choice of paying for an inn to stay the night, or test your luck in the eerily silent streets.
   ",
   next_session: DateTime.civil_from_format( :local, 2019, 3, 26, 19 ),
