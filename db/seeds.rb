@@ -133,9 +133,107 @@ u7 = User.create!({
 
 puts "Re-creating campaigns..."
 
+c7 = u7.campaigns.create!({
+  name: Faker::Games::ElderScrolls.city,
+  description: Faker::Books::Lovecraft.sentence,
+  location: Faker::Address.street_address,
+  playing_style: "story-focused",
+  exp_level: "intermediate",
+  player_limit: 2,
+  synopsis: (Faker::Books::Lovecraft.paragraphs(5)).join(' '),
+  next_session: DateTime.civil_from_format( :local, 2019, 3, 18, 19 ),
+  image: CampaignImages.sample,
+  commitment: "casual",
+  deep_immersion: true,
+  sandbox: true,
+  battle_focused: false,
+  kick_in_the_door: false,
+  exploration: true,
+  random: false
+})
 
-3.times {
+2.times {
   u7.campaigns.create!({
+  name: Faker::Games::Witcher.location,
+  description: Faker::Books::Lovecraft.sentence,
+  location: Faker::Address.street_address,
+  playing_style: "story-focused",
+  exp_level: "intermediate",
+  player_limit: 6,
+  synopsis: (Faker::Books::Lovecraft.paragraphs(5)).join(' '),
+  next_session: DateTime.civil_from_format( :local, 2019, 3, 18, 19 ),
+  image: CampaignImages.sample,
+  commitment: "casual",
+  deep_immersion: true,
+  sandbox: true,
+  battle_focused: false,
+  kick_in_the_door: false,
+  exploration: true,
+  random: false
+  })
+}
+
+c8 = u6.campaigns.create!({
+  name: Faker::Games::ElderScrolls.city,
+  description: Faker::Books::Lovecraft.sentence,
+  location: Faker::Address.street_address,
+  playing_style: "story-focused",
+  exp_level: "intermediate",
+  player_limit: 3,
+  synopsis: (Faker::Books::Lovecraft.paragraphs(5)).join(' '),
+  next_session: DateTime.civil_from_format( :local, 2019, 3, 18, 19 ),
+  image: CampaignImages.sample,
+  commitment: "casual",
+  deep_immersion: true,
+  sandbox: true,
+  battle_focused: false,
+  kick_in_the_door: false,
+  exploration: true,
+  random: false
+})
+
+2.times {
+  u6.campaigns.create!({
+  name: Faker::TvShows::GameOfThrones.city,
+  description: Faker::Books::Lovecraft.sentence,
+  location: Faker::Address.street_address,
+  playing_style: "story-focused",
+  exp_level: "intermediate",
+  player_limit: 6,
+  synopsis: (Faker::Books::Lovecraft.paragraphs(5)).join(' '),
+  next_session: DateTime.civil_from_format( :local, 2019, 3, 18, 19 ),
+  image: CampaignImages.sample,
+  commitment: "casual",
+  deep_immersion: true,
+  sandbox: true,
+  battle_focused: false,
+  kick_in_the_door: false,
+  exploration: true,
+  random: false
+  })
+}
+
+c9 = u5.campaigns.create!({
+  name: Faker::Games::ElderScrolls.city,
+  description: Faker::Books::Lovecraft.sentence,
+  location: Faker::Address.street_address,
+  playing_style: "story-focused",
+  exp_level: "intermediate",
+  player_limit: 2,
+  synopsis: (Faker::Books::Lovecraft.paragraphs(5)).join(' '),
+  next_session: DateTime.civil_from_format( :local, 2019, 3, 18, 19 ),
+  image: CampaignImages.sample,
+  commitment: "casual",
+  deep_immersion: true,
+  sandbox: true,
+  battle_focused: false,
+  kick_in_the_door: false,
+  exploration: true,
+  random: false
+})
+
+2.times {
+  u5.campaigns.create!({
   name: Faker::TvShows::GameOfThrones.city,
   description: Faker::Books::Lovecraft.sentence,
   location: Faker::Address.street_address,
@@ -156,7 +254,7 @@ puts "Re-creating campaigns..."
 }
 
 
-3.times {
+2.times {
   u4.campaigns.create!({
   name: Faker::Games::ElderScrolls.city,
   description: Faker::Books::Lovecraft.sentence,
@@ -176,6 +274,25 @@ puts "Re-creating campaigns..."
   random: false
   })
 }
+
+c10 = u4.campaigns.create!({
+  name: Faker::Games::ElderScrolls.city,
+  description: Faker::Books::Lovecraft.sentence,
+  location: Faker::Address.street_address,
+  playing_style: "story-focused",
+  exp_level: "intermediate",
+  player_limit: 4,
+  synopsis: (Faker::Books::Lovecraft.paragraphs(5)).join(' '),
+  next_session: DateTime.civil_from_format( :local, 2019, 3, 18, 19 ),
+  image: CampaignImages.sample,
+  commitment: "casual",
+  deep_immersion: true,
+  sandbox: true,
+  battle_focused: false,
+  kick_in_the_door: false,
+  exploration: true,
+  random: false
+})
 
 c1 = u1.campaigns.create!({
   name: "An Odyssey On the Sea",
@@ -306,6 +423,94 @@ c6 = u6.campaigns.create!({
 })
 
 puts "Re-creating join requests..."
+
+JoinRequest.create!({
+  user_id: u1.id,
+  campaign_id: c7.id,
+  message: "I'm the best at D&D!",
+  player_confirm: true,
+  dm_confirm: "accepted"
+})
+
+JoinRequest.create!({
+  user_id: u2.id,
+  campaign_id: c7.id,
+  message: "I'm the best at D&D!",
+  player_confirm: true,
+  dm_confirm: "accepted"
+})
+
+JoinRequest.create!({
+  user_id: u3.id,
+  campaign_id: c8.id,
+  message: "I'm the best at D&D!",
+  player_confirm: true,
+  dm_confirm: "accepted"
+})
+
+JoinRequest.create!({
+  user_id: u4.id,
+  campaign_id: c8.id,
+  message: "I'm the best at D&D!",
+  player_confirm: true,
+  dm_confirm: "accepted"
+})
+
+JoinRequest.create!({
+  user_id: u5.id,
+  campaign_id: c8.id,
+  message: "I'm the best at D&D!",
+  player_confirm: true,
+  dm_confirm: "accepted"
+})
+
+JoinRequest.create!({
+  user_id: u1.id,
+  campaign_id: c9.id,
+  message: "I'm the best at D&D!",
+  player_confirm: true,
+  dm_confirm: "accepted"
+})
+
+JoinRequest.create!({
+  user_id: u2.id,
+  campaign_id: c9.id,
+  message: "I'm the best at D&D!",
+  player_confirm: true,
+  dm_confirm: "accepted"
+})
+
+JoinRequest.create!({
+  user_id: u2.id,
+  campaign_id: c10.id,
+  message: "I'm the best at D&D!",
+  player_confirm: true,
+  dm_confirm: "accepted"
+})
+
+JoinRequest.create!({
+  user_id: u3.id,
+  campaign_id: c10.id,
+  message: "I'm the best at D&D!",
+  player_confirm: true,
+  dm_confirm: "accepted"
+})
+
+JoinRequest.create!({
+  user_id: u4.id,
+  campaign_id: c10.id,
+  message: "I'm the best at D&D!",
+  player_confirm: true,
+  dm_confirm: "accepted"
+})
+
+JoinRequest.create!({
+  user_id: u6.id,
+  campaign_id: c10.id,
+  message: "I'm the best at D&D!",
+  player_confirm: true,
+  dm_confirm: "accepted"
+})
 
 JoinRequest.create!({
   user_id: u1.id,

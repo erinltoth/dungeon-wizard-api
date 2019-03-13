@@ -6,7 +6,7 @@ class CampaignsController < ApplicationController
     data = []
     @campaigns.each do |campaign|
       @dm = User.find(campaign.user_id)
-      @players = JoinRequest.where(["campaign_id = ?", campaign.id])
+      @players = JoinRequest.where(["campaign_id = ? and dm_confirm = ?", campaign.id, "accepted"])
       @all_playing_styles = [
         { style: "deep_immersion", activated: campaign.deep_immersion },
         { style: "sandbox", activated: campaign.sandbox },
