@@ -49,7 +49,8 @@ class CampaignsController < ApplicationController
       @playing_styles = @filtered_playing_styles.collect { |style| style[:style] }
     data = {
       campaign: @campaign,
-      dm: { name: @dm.name },
+      dm: { name: @dm.name,
+            email: @dm.email },
       players: @players,
       join_requests: @fullrequests,
       playing_styles: @playing_styles
