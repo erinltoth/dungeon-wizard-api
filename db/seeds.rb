@@ -33,6 +33,8 @@ CampaignImages =  ["https://bit.ly/2VOZZ3s",
                   "https://bit.ly/2TIzBdO",
                   "https://bit.ly/2Hlac3w"]
 
+true_false = [true, false]
+
 
 u1 = User.create!({
   name: Faker::Name.name,
@@ -152,7 +154,7 @@ c7 = u7.campaigns.create!({
   random: false
 })
 
-2.times {
+15.times {
   u7.campaigns.create!({
   name: Faker::Games::Witcher.location,
   description: Faker::Books::Lovecraft.sentence,
@@ -164,12 +166,12 @@ c7 = u7.campaigns.create!({
   next_session: DateTime.civil_from_format( :local, 2019, 3, 18, 19 ),
   image: CampaignImages.sample,
   commitment: "casual",
-  deep_immersion: true,
-  sandbox: true,
-  battle_focused: false,
-  kick_in_the_door: false,
-  exploration: true,
-  random: false
+  deep_immersion: true_false.sample,
+  sandbox: true_false.sample,
+  battle_focused: true_false.sample,
+  kick_in_the_door: true_false.sample,
+  exploration: true_false.sample,
+  random: true_false.sample
   })
 }
 
@@ -192,7 +194,7 @@ c8 = u6.campaigns.create!({
   random: false
 })
 
-2.times {
+15.times {
   u6.campaigns.create!({
   name: Faker::TvShows::GameOfThrones.city,
   description: Faker::Books::Lovecraft.sentence,
@@ -204,12 +206,12 @@ c8 = u6.campaigns.create!({
   next_session: DateTime.civil_from_format( :local, 2019, 3, 18, 19 ),
   image: CampaignImages.sample,
   commitment: "casual",
-  deep_immersion: true,
-  sandbox: true,
-  battle_focused: false,
-  kick_in_the_door: false,
-  exploration: true,
-  random: false
+  deep_immersion: true_false.sample,
+  sandbox: true_false.sample,
+  battle_focused: true_false.sample,
+  kick_in_the_door: true_false.sample,
+  exploration: true_false.sample,
+  random: true_false.sample
   })
 }
 
@@ -232,7 +234,7 @@ c9 = u5.campaigns.create!({
   random: false
 })
 
-2.times {
+15.times {
   u5.campaigns.create!({
   name: Faker::TvShows::GameOfThrones.city,
   description: Faker::Books::Lovecraft.sentence,
@@ -244,17 +246,17 @@ c9 = u5.campaigns.create!({
   next_session: DateTime.civil_from_format( :local, 2019, 3, 18, 19 ),
   image: CampaignImages.sample,
   commitment: "casual",
-  deep_immersion: true,
-  sandbox: true,
-  battle_focused: false,
-  kick_in_the_door: false,
-  exploration: true,
-  random: false
+  deep_immersion: true_false.sample,
+  sandbox: true_false.sample,
+  battle_focused: true_false.sample,
+  kick_in_the_door: true_false.sample,
+  exploration: true_false.sample,
+  random: true_false.sample
   })
 }
 
 
-2.times {
+15.times {
   u4.campaigns.create!({
   name: Faker::Games::ElderScrolls.city,
   description: Faker::Books::Lovecraft.sentence,
@@ -266,12 +268,12 @@ c9 = u5.campaigns.create!({
   next_session: DateTime.civil_from_format( :local, 2019, 3, 22, 19 ),
   image: CampaignImages.sample,
   commitment: "casual",
-  deep_immersion: true,
-  sandbox: true,
-  battle_focused: false,
-  kick_in_the_door: false,
-  exploration: true,
-  random: false
+  deep_immersion: true_false.sample,
+  sandbox: true_false.sample,
+  battle_focused: true_false.sample,
+  kick_in_the_door: true_false.sample,
+  exploration: true_false.sample,
+  random: true_false.sample
   })
 }
 
